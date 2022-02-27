@@ -1,6 +1,8 @@
 import os
 import platform
+import requests
 from datetime import datetime
+
 
 import discord
 from discord.ext import commands
@@ -13,35 +15,46 @@ class CatAAS(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
+    def saveImage(self, url: str):
+        try:
+            r = requests.get(url).content
+            with open("temp.png", "wb") as fimg:
+                fimg.write(r)
+            return True
+        except:
+            return False
+
+    def removeImage(self, filename: str = "temp.png"):
+        os.system("rm -rf ./{delfname}".format(delfname=filename))
+
     @commands.command()
     async def cat(self, ctx):
-        embed = discord.Embed(title="a Cat",
-                              color=0xcb42f5,
-                              timestamp=datetime.utcnow())
-        embed.set_author(name=str(self.client.user.name),
-                         icon_url=str(self.client.user.avatar_url))
-        embed.set_thumbnail(url="https://cataas.com/cat")
-        embed.set_footer(text=EmbedsDB.common["footer"].format(
-            author_name=ctx.author.name))
-        await ctx.send(embed=embed)
+        if self.saveImage(url="https://cataas.com/cat"):
+            file = discord.File(f'temp.png', filename="temp.png")
+            embed = discord.Embed(title="a Cat",
+                                  color=0xcb42f5,
+                                  timestamp=datetime.utcnow())
+            embed.set_author(name=str(self.client.user.name),
+                             icon_url=str(self.client.user.avatar_url))
+            embed.set_image(url="attachment://temp.png")
+            embed.set_footer(text=EmbedsDB.common["footer"].format(
+                author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+            await ctx.send(file=file, embed=embed)
 
-    # @commands.command()
-    # async def clean(self, ctx, amount=5):
-    #     if amount <= 100:
-    #         pass
+            self.removeImage(filename="temp.png")
 
-    #     else:
-    #         embed = discord.Embed(title="An Error has Occured",
-    #                               description="",
-    #                               color=0xcb42f5,
-    #                               timestamp=datetime.utcnow())
-    #         embed.set_author(name=str(self.client.user.name),
-    #                          icon_url=str(self.client.user.avatar_url))
-    #         embed.set_thumbnail(
-    #             url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
-    #         embed.set_footer(text=EmbedsDB.common["footer"].format(
-    #             author_name=ctx.author.name))
-    #         await ctx.send(embed=embed)
+        else:
+            embed = discord.Embed(title="An Error has Occured",
+                                  description="Unable to load the Image from the API",
+                                  color=0xcb42f5,
+                                  timestamp=datetime.utcnow())
+            embed.set_author(name=str(self.client.user.name),
+                             icon_url=str(self.client.user.avatar_url))
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
+            embed.set_footer(text=EmbedsDB.common["footer"].format(
+                author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+            await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
