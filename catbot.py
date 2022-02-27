@@ -5,9 +5,9 @@ from discord.ext import commands
 
 from src.utils.database import Settings as SettingsDB
 
+bot_prefix = SettingsDB.main["prefix"]
 with open("token.txt", "r", encoding="utf-8") as tokenfile:
     token = tokenfile.read()
-bot_prefix = SettingsDB.main["prefix"]
 
 client = commands.Bot(command_prefix=bot_prefix)
 
@@ -25,6 +25,7 @@ for filename in os.listdir('./src/cogs'):
 async def on_message(message):
     if client.user == message.author:
         return
+
     await client.process_commands(message)
 
 client.run(token)
