@@ -1,0 +1,42 @@
+import os
+import platform
+import time
+from datetime import datetime, timedelta
+
+import discord
+from discord.ext import commands
+
+from src.utils.database import Embeds as EmbedsDB
+
+
+class General(commands.Cog):
+    def __init__(self, client: commands.Bot):
+        self.client = client
+
+        self.client.remove_command('help')
+
+        self.start_time = None
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print(f'Discord.py API version: {discord.__version__}')
+        print(f'Python version: {platform.python_version()}')
+        print(f'Logged in as {self.client.user.name}')
+        self.start_time = time.time()
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f";help"))
+        print('Bot is ready!')
+
+    @commands.command()
+    async def ping(self, ctx):
+        embed = discord.Embed(title="Response Time",
+                              color=0xcb42f5,
+                              timestamp=datetime.utcnow())
+        embed.set_author(name=str(self.client.user.name),
+                         icon_url=str(self.client.user.avatar_url))
+        embed.set_thumbnail(
+            url="https://cdn.discordapp.com/attachments/877796755234783273/879311068097290320/PngItem_1526969.png")
+        embed.add_field(
+            name=f"Ping :timer:", value=f"{round(self.client.latency * 1000)} ms", inline=False)
+        embed.set_footer(text=EmbedsDB.common["footer"].format(
+            author_name=ctx.author.name))
+        await ctx.send(embed=embed)
