@@ -7,6 +7,7 @@ import discord
 from discord.ext import commands
 
 from src.utils.database import Embeds as EmbedsDB
+from src.utils.database import Settings as SettingsDB
 
 
 class General(commands.Cog):
@@ -23,7 +24,7 @@ class General(commands.Cog):
         print(f'Python version: {platform.python_version()}')
         print(f'Logged in as {self.client.user.name}')
         self.start_time = time.time()
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f";help"))
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{SettingsDB.main['prefix']}help"))
         print('Bot is ready!')
 
     @commands.command()
@@ -97,3 +98,7 @@ class General(commands.Cog):
             embed.set_footer(text=EmbedsDB.common["footer"].format(
                 author_name=ctx.author.name))
             await ctx.send(embed=embed)
+
+
+def setup(client: commands.Bot):
+    client.add_cog(General(client))
