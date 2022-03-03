@@ -9,6 +9,7 @@ import random
 from discord.ext import commands
 from src.utils.database import Embeds as EmbedsDB
 from src.utils.database import Settings as SettingsDB
+from src.utils.database import EmbedsCommands as EmbedsCommandsDB
 
 
 class TheCat(commands.Cog):
@@ -218,7 +219,9 @@ class TheCat(commands.Cog):
 
     @commands.command()
     async def cats(self, ctx, *, count=None):
+        max_possible = int(EmbedsDB.commands["cats"]["max_amount"])
         count_error = False
+
         if count is None:
             count = 1
         else:
@@ -228,8 +231,18 @@ class TheCat(commands.Cog):
                 count = 1
                 count_error = True
 
-        if count > 20:
-            pass
+        if count > max_possible:
+            embed = discord.Embed(title="An Error has Occured",
+                                  description=f"Please enter value below {max_possible} to prevent scams",
+                                  color=0xcb42f5,
+                                  timestamp=datetime.utcnow())
+            embed.set_author(name=str(self.client.user.name),
+                             icon_url=str(self.client.user.avatar_url))
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
+            embed.set_footer(text=EmbedsDB.common["footer"].format(
+                author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+            await ctx.send(embed=embed)
 
         #       https://api.thecatapi.com/v1/images/search?limit=3
         url = f"https://api.thecatapi.com/v1/images/search?limit={count}"
@@ -262,7 +275,7 @@ class TheCat(commands.Cog):
                         url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
                     embed.set_footer(text=EmbedsDB.common["footer"].format(
                         author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
-                    await ctx.send(embed=embed)
+                    await ctx.author.send(embed=embed)
 
         iter = 1
         for one_image in result:
