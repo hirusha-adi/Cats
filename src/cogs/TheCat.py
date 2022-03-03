@@ -292,7 +292,7 @@ class TheCat(commands.Cog):
             embed.set_image(url=f"{one_image['url']}")
             embed.set_footer(text=EmbedsDB.common["footer"].format(
                 author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
-            await ctx.author.send(embed=embed)
+            await ctx.send(embed=embed)
             iter += 1
 
 
