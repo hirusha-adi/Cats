@@ -4,7 +4,7 @@
     },
     "commands": {
         "cats": {
-            "max_amount": 20
+            "max_amount": 10
         }
     }
 }
