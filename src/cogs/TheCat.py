@@ -40,8 +40,8 @@ class TheCat(commands.Cog):
     async def breed(self, ctx, *, text=None):
         url = "https://api.thecatapi.com/v1/breeds"
 
-        async with aiohttp.ClientSession() as pornSession:
-            async with pornSession.get(url) as jsondata:
+        async with aiohttp.ClientSession() as catSession:
+            async with catSession.get(url) as jsondata:
                 if not 300 > jsondata.status >= 200:
                     embed = discord.Embed(title="An Error has Occured",
                                           description="Bad status code from API",
@@ -215,6 +215,83 @@ class TheCat(commands.Cog):
         embed.set_footer(text=EmbedsDB.common["footer"].format(
             author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
         await ctx.send(embed=embed)
+
+    @commands.command()
+    async def cats(self, ctx, *, count=None):
+        if count is None:
+            embed = discord.Embed(title="An Error has Occured",
+                                  description="The Amount of images is not given, please refer `help` for more a usage guide for this command",
+                                  color=0xcb42f5,
+                                  timestamp=datetime.utcnow())
+            embed.set_author(name=str(self.client.user.name),
+                             icon_url=str(self.client.user.avatar_url))
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
+            embed.set_footer(text=EmbedsDB.common["footer"].format(
+                author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+            await ctx.send(embed=embed)
+            return
+
+        try:
+            count = int(count)
+        except TypeError:
+            embed = discord.Embed(title="An Error has Occured",
+                                  description="The given <count> is not a number",
+                                  color=0xcb42f5,
+                                  timestamp=datetime.utcnow())
+            embed.set_author(name=str(self.client.user.name),
+                             icon_url=str(self.client.user.avatar_url))
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
+            embed.set_footer(text=EmbedsDB.common["footer"].format(
+                author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+            await ctx.send(embed=embed)
+            return
+
+        url = f"https://api.thecatapi.com/v1/search?limit={count}"
+
+        async with aiohttp.ClientSession() as catSession:
+            async with catSession.get(url) as jsondata:
+                if not 300 > jsondata.status >= 200:
+                    embed = discord.Embed(title="An Error has Occured",
+                                          description="Bad status code from API",
+                                          color=0xcb42f5,
+                                          timestamp=datetime.utcnow())
+                    embed.set_author(name=str(self.client.user.name),
+                                     icon_url=str(self.client.user.avatar_url))
+                    embed.set_thumbnail(
+                        url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
+                    embed.set_footer(text=EmbedsDB.common["footer"].format(
+                        author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+                    await ctx.send(embed=embed)
+
+                try:
+                    result = await jsondata.json()
+                except Exception as e:
+                    embed = discord.Embed(title="An Error has Occured",
+                                          description=f"Unable to convert fetched data to JSON from API: {e}",
+                                          color=0xcb42f5,
+                                          timestamp=datetime.utcnow())
+                    embed.set_author(name=str(self.client.user.name),
+                                     icon_url=str(self.client.user.avatar_url))
+                    embed.set_thumbnail(
+                        url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
+                    embed.set_footer(text=EmbedsDB.common["footer"].format(
+                        author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+                    await ctx.send(embed=embed)
+
+        count = 1
+        for one_image in result:
+            embed = discord.Embed(title=f"a Cat - {count}",
+                                  color=0xcb42f5,
+                                  timestamp=datetime.utcnow())
+            embed.set_author(name=str(self.client.user.name),
+                             icon_url=str(self.client.user.avatar_url))
+            embed.set_image(url=f"{one_image['url']}")
+            embed.set_footer(text=EmbedsDB.common["footer"].format(
+                author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
+            await ctx.send(embed=embed)
+            count += 1
 
 
 def setup(client: commands.Bot):
