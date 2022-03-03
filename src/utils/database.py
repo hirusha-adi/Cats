@@ -5,12 +5,7 @@ class Embeds:
     with open("database/embeds.json", "r", encoding="utf-8") as _file:
         _data = json.load(_file)
         common = _data["common"]
-
-
-class EmbedsCommands:
-    with open("database/embeds.json", "r", encoding="utf-8") as _file:
-        _data = json.load(_file)
-        common = _data["commands"]
+        commands = _data["commands"]
 
 
 class Settings:
