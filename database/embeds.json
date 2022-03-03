@@ -1,5 +1,10 @@
 {
     "common": {
         "footer": "Requested by {author_name}"
+    },
+    "commands": {
+        "cats": {
+            "max_amount": 20
+        }
     }
 }
