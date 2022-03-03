@@ -274,7 +274,7 @@ class TheCat(commands.Cog):
                         url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
                     embed.set_footer(text=EmbedsDB.common["footer"].format(
                         author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
-                    await ctx.author.send(embed=embed)
+                    await ctx.send(embed=embed)
 
         iter = 1
         for one_image in result:
@@ -292,7 +292,7 @@ class TheCat(commands.Cog):
             embed.set_image(url=f"{one_image['url']}")
             embed.set_footer(text=EmbedsDB.common["footer"].format(
                 author_name=ctx.author.name), icon_url=str(ctx.author.avatar_url))
-            await ctx.send(embed=embed)
+            await ctx.author.send(embed=embed)
             iter += 1
 
 
