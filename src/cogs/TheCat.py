@@ -9,7 +9,6 @@ import random
 from discord.ext import commands
 from src.utils.database import Embeds as EmbedsDB
 from src.utils.database import Settings as SettingsDB
-from src.utils.database import EmbedsCommands as EmbedsCommandsDB
 
 
 class TheCat(commands.Cog):
