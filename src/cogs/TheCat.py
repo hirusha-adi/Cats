@@ -228,7 +228,11 @@ class TheCat(commands.Cog):
                 count = 1
                 count_error = True
 
-        url = f"https://api.thecatapi.com/v1/search?limit={count}"
+        if count > 20:
+            pass
+
+        #       https://api.thecatapi.com/v1/images/search?limit=3
+        url = f"https://api.thecatapi.com/v1/images/search?limit={count}"
 
         async with aiohttp.ClientSession() as catSession:
             async with catSession.get(url) as jsondata:
