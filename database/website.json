@@ -52,6 +52,16 @@
                     }
                 }
             }
-        ]
+        ],
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "sub_title": "A list of common questions about this Discord Bot",
+            "items": {
+                "What is the bot prefix?": [
+                    "bold_;",
+                    "The prefix of this discord bot is ;"
+                ]
+            }
+        }
     }
 }
