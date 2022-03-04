@@ -1,3 +1,4 @@
+import json
 import os
 from threading import Thread
 
@@ -7,10 +8,46 @@ app = Flask(__name__,
             template_folder=f"{os.getcwd()}/src/website/templates",
             static_folder=f"{os.getcwd()}/src/website/static")
 
+HOME = None
+HELP = None
+HEADER = None
+FOOTER = None
+
+
+def loadIndex():
+    global HOME, HEADER, FOOTER
+    with open(f"{os.getcwd()}/database/website.json", "r", encoding="utf-8") as temp:
+        x = json.load(temp)
+        HOME = x["HOME"]
+        HEADER = x["HEADER"]
+        FOOTER = x["FOOTER"]
+
+
+def loadHelp():
+    global HELP, HEADER, FOOTER
+    with open(f"{os.getcwd()}/database/website.json", "r", encoding="utf-8") as temp:
+        x = json.load(temp)
+        HELP = x["HELP"]
+        HEADER = x["HEADER"]
+        FOOTER = x["FOOTER"]
+
 
 @app.route('/bot')
 def index():
-    return render_template("index.html")
+    global HOME, HEADER, FOOTER
+    if HOME is None:
+        loadIndex()
+
+    return render_template("index.html",
+                           HEADER_logo=HEADER["logo"],
+                           HEADER_items_dict=HEADER["items"],
+                           FOOTER_items_dict=FOOTER["items"],
+                           HOME_box_title=HOME["box"]["title"],
+                           HOME_box_sub_title=HOME["box"]["sub_title"],
+                           HOME_box_body=HOME["box"]["body"],
+                           HOME_box_bottom_paragraphs=HOME["box"]["bottom"]["paragraphs"],
+                           HOME_buttons=HOME["buttons"],
+                           )
 
 
 @app.route('/bot/help')
