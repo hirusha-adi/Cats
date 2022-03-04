@@ -16,7 +16,7 @@ FOOTER = None
 
 def loadJson():
     global HOME, HEADER, FOOTER, HELP
-    with open(f"{os.getcwd()}/database/website.json", "r", encoding="utf-8") as temp:
+    with open(f"{os.getcwd()}/database/bot_website.json", "r", encoding="utf-8") as temp:
         x = json.load(temp)
         HOME = x["HOME"]
         HELP = x["HELP"]
@@ -65,7 +65,7 @@ def page_not_found(e):
 
 
 def run():
-    app.run(host='0.0.0.0', port=8090)
+    app.run(host='0.0.0.0', port=4499)
 
 
 def starWebServer():
