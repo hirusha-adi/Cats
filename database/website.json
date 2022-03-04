@@ -1,0 +1,40 @@
+{
+    "HEADER": {
+        "logo": "https://cdn.discordapp.com/attachments/877796755234783273/948956991122980904/images.png",
+        "items": {
+            "Home": "index_url",
+            "Help": "help_url",
+            "Visit Main Website": "https://teamsds.net/contact"
+        }
+    },
+    "FOOTER": {
+        "items": {
+            "Github": "https://github.com/hirusha-adi"
+        }
+    },
+    "HOME": {
+        "box": {
+            "title": "Welcome",
+            "sub_title": "I am the CatBot",
+            "body": {
+                "start": "I am an",
+                "bold": "intergration",
+                "mid": "of the ",
+                "hyperlink": {
+                    "url": "http://cats.hirusha.xyz",
+                    "content": "main website"
+                },
+                "end": "for discord. Everything in the website can be done with this discord bot through discord without leaving discord"
+            },
+            "bottom": {
+                "paragraphs": {
+                    "Click here to visit the Main Website": "http://cats.hirusha.xyz"
+                }
+            }
+        },
+        "buttons": {
+            "Show Help": "help_url"
+        }
+    },
+    "HELP": {}
+}
