@@ -38,7 +38,7 @@ def index():
                            HOME_box_sub_title=HOME["box"]["sub_title"],
                            HOME_box_body=HOME["box"]["body"],
                            HOME_box_bottom_paragraphs=HOME["box"]["bottom"]["paragraphs"],
-                           HOME_buttons=HOME["buttons"],
+                           HOME_buttons=HOME["buttons"]
                            )
 
 
@@ -53,6 +53,9 @@ def help():
                            HEADER_items_dict=HEADER["items"],
                            FOOTER_items_dict=FOOTER["items"],
                            HELP_tables_list=HELP["tables"],
+                           HELP_faq_title=HELP["faq"]["title"],
+                           HELP_faq_sub_title=HELP["faq"]["sub_title"],
+                           HELP_faq_items=HELP["faq"]["items"]
                            )
 
 
