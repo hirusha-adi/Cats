@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 
 from src.utils.database import Settings as SettingsDB
+from src.website.server import starWebServer
 
 bot_prefix = SettingsDB.main["prefix"]
 with open("token.txt", "r", encoding="utf-8") as tokenfile:
@@ -28,4 +29,5 @@ async def on_message(message):
 
     await client.process_commands(message)
 
-client.run(token)
+starWebServer()
+# client.run(token)
