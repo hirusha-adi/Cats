@@ -132,3 +132,4 @@ dmypy.json
 .pyre/
 sample2.json
 sample.json
+web/static/images/temp.png
