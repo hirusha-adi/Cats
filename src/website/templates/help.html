@@ -169,6 +169,75 @@
     {% endfor %}
   {% endfor %}
 
+  <section class="u-align-center u-clearfix u-white u-section-7" id="sec-f04d">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-text u-text-default u-text-1">{{ HELP_faq_title }}</h2>
+      <p class="u-text u-text-2">{{ HELP_faq_sub_title }}</p>
+      <div class="u-accordion u-expanded-width u-faq u-spacing-10 u-accordion-1">
+        
+        {% for k1_question, v1_answer in HELP_faq_items.items() %}
+          <div class="u-accordion-item">
+
+            <a class="active u-accordion-link u-active-grey-60 u-button-style u-grey-70 u-hover-grey-60 u-radius-27 u-accordion-link-1"
+              id="link-accordion-f600" 
+              aria-controls="accordion-f600" 
+              aria-selected="true">
+
+              <span class="u-accordion-link-text">
+                {{ k1_question }}
+                <br>
+              </span>
+
+              <span class="u-accordion-link-icon u-icon u-icon-circle u-radius-50 u-text-white u-icon-1">
+                <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 42 42">
+                  <use xlink:href="#svg-977a"></use>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    version="1.1"
+                    xml:space="preserve" 
+                    class="u-svg-content" 
+                    viewBox="0 0 42 42" 
+                    x="0px" y="0px" 
+                    id="svg-977a"
+                    style="enable-background:new 0 0 42 42;">
+                  <polygon 
+                    points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 ">
+                  </polygon>
+                </svg>
+              </span>
+            </a>
+
+            <div class="u-accordion-active u-accordion-pane u-container-style u-shape-rectangle u-accordion-pane-1"
+              id="accordion-f600" aria-labelledby="link-accordion-f600">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  
+                  {% for para in v1_answer %}
+                    {% if para.lower().startswith("bold_") == True %}
+                      <p>
+                        <span style="font-weight: 700;">
+                          {{ para[5:] }}
+                        </span>
+                      </p>
+
+                    {% else %}
+                      <p>
+                        {{ para }}
+                      </p>
+                    
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-97d4">
     <div class="u-clearfix u-sheet u-sheet-1">
       
