@@ -14,19 +14,11 @@ HEADER = None
 FOOTER = None
 
 
-def loadIndex():
-    global HOME, HEADER, FOOTER
+def loadJson():
+    global HOME, HEADER, FOOTER, HELP
     with open(f"{os.getcwd()}/database/website.json", "r", encoding="utf-8") as temp:
         x = json.load(temp)
         HOME = x["HOME"]
-        HEADER = x["HEADER"]
-        FOOTER = x["FOOTER"]
-
-
-def loadHelp():
-    global HELP, HEADER, FOOTER
-    with open(f"{os.getcwd()}/database/website.json", "r", encoding="utf-8") as temp:
-        x = json.load(temp)
         HELP = x["HELP"]
         HEADER = x["HEADER"]
         FOOTER = x["FOOTER"]
@@ -36,7 +28,7 @@ def loadHelp():
 def index():
     global HOME, HEADER, FOOTER
     if HOME is None:
-        loadIndex()
+        loadJson()
 
     return render_template("index.html",
                            HEADER_logo=HEADER["logo"],
@@ -52,7 +44,16 @@ def index():
 
 @app.route('/bot/help')
 def help():
-    return render_template("help.html")
+    global HELP, HEADER, FOOTER
+    if HELP is None:
+        loadJson()
+
+    return render_template("help.html",
+                           HEADER_logo=HEADER["logo"],
+                           HEADER_items_dict=HEADER["items"],
+                           FOOTER_items_dict=FOOTER["items"],
+                           HELP_tables_list=HELP["tables"],
+                           )
 
 
 @app.errorhandler(404)
