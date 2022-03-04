@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>Help</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cats.css') }}" media="screen">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Help.css') }}" media="screen">
+  <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.9.1.min.js') }}"
+    defer=""></script>
+  <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/cats.js') }}"
+    defer=""></script>
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+
+  <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "WebSite972320",
+		"logo": "https://teamsds.net/pub/logo.png"
+}   </script>
+
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Help">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+</head>
+
+<body class="u-body">
+  <header class="u-clearfix u-header u-header" id="sec-1984">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+        <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+          <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            href="#">
+            <svg>
+              <use xlink:href="#menu-hamburger"></use>
+            </svg>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+                <symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;">
+                  <rect y="1" width="16" height="2"></rect>
+                  <rect y="7" width="16" height="2"></rect>
+                  <rect y="13" width="16" height="2"></rect>
+                </symbol>
+              </defs>
+            </svg>
+          </a>
+        </div>
+
+        <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1">
+              
+              {% for navone_key, navone_val in HEADER_items_dict.items() %}
+                {% if navone_val == "index_url" %}
+
+                  <li class="u-nav-item"><a
+                    class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                    href="{{ url_for('index') }}" style="padding: 10px 20px;">{{ navone_key }}</a>
+                  </li>
+
+                {% elif navone_val == "help_url" %}
+
+                  <li class="u-nav-item"><a
+                    class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                    href="{{ url_for('help') }}" style="padding: 10px 20px;">{{ navone_key }}</a>
+                  </li>
+
+                {% else %}
+
+                  <li class="u-nav-item"><a
+                      class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                      href="{{ navone_val }}" style="padding: 10px 20px;">{{ navone_key }}</a>
+                  </li>
+
+                {% endif %}
+              {% endfor %}
+
+          </ul>
+        </div>
+
+        <div class="u-custom-menu u-nav-container-collapse">
+          <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+            <div class="u-inner-container-layout u-sidenav-overflow">
+              <div class="u-menu-close"></div>
+              <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                
+                {% for navtwo_key, navtwo_val in HEADER_items_dict.items() %}
+                  {% if navtwo_val == "index_url" %}
+
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('index') }}"
+                      style="padding: 10px 20px;">{{ navtwo_key }}</a>
+                    </li>
+
+                  {% elif navtwo_val == "help_url" %}
+
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('help') }}"
+                      style="padding: 10px 20px;">{{ navtwo_key }}</a>
+                    </li>
+
+                  {% else %}
+
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ navtwo_val }}"
+                      style="padding: 10px 20px;">{{ navtwo_key }}</a>
+                    </li>
+
+                  {% endif %}
+                {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+          <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+        </div>
+
+      </nav>
+
+      <a href="{{ url_for('index') }}" data-page-id="972330" class="u-image u-logo u-image-1" data-image-width="859"
+        data-image-height="397" title="Home">
+        <img src="{{ HEADER_logo }}" class="u-logo-image u-logo-image-1">
+      </a>
+
+    </div>
+  </header>
+
+  {% for table in HELP_tables_list %}
+    {% for k1_title, v1_data in table.items() %}
+
+      <section class="u-align-center u-clearfix u-section-1" id="sec-06e6">
+        <div class="u-clearfix u-sheet u-sheet-1">
+          <h2 class="u-text u-text-default u-text-1">{{ k1_title }}</h2>
+          <div class="u-expanded-width u-table u-table-responsive u-table-1">
+            <table class="u-table-entity u-table-entity-1">
+              <colgroup>
+                <col width="50%">
+                <col width="50%">
+              </colgroup>
+              <thead class="u-black u-table-header u-table-header-1">
+                <tr style="height: 46px;">
+                  <th class="u-border-1 u-border-black u-table-cell">{{ v1_data["left_header"] }}</th>
+                  <th class="u-border-1 u-border-black u-table-cell">{{ v1_data["right_header"] }}</th>
+                </tr>
+              </thead>
+              <tbody class="u-table-alt-grey-5 u-table-body">
+                
+                {% for k2_left, v2_right in v1_data["table_rows"].items() %}
+                  <tr style="height: 75px;">
+
+                    <td class="u-border-1 u-border-grey-30 u-first-column u-grey-50 u-table-cell u-table-cell-3">
+                      {{ k2_left }}
+                    </td>
+                    
+                    <td class="u-border-1 u-border-grey-30 u-table-cell">
+                      {{ v2_right }}
+                    </td>
+
+                  </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    {% endfor %}
+  {% endfor %}
+
+  <section class="u-align-center u-clearfix u-white u-section-7" id="sec-f04d">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-text u-text-default u-text-1">{{ HELP_faq_title }}</h2>
+      <p class="u-text u-text-2">{{ HELP_faq_sub_title }}</p>
+      <div class="u-accordion u-expanded-width u-faq u-spacing-10 u-accordion-1">
+        
+        {% for k1_question, v1_answer in HELP_faq_items.items() %}
+          <div class="u-accordion-item">
+
+            <a class="active u-accordion-link u-active-grey-60 u-button-style u-grey-70 u-hover-grey-60 u-radius-27 u-accordion-link-1"
+              id="link-accordion-f600" 
+              aria-controls="accordion-f600" 
+              aria-selected="true">
+
+              <span class="u-accordion-link-text">
+                {{ k1_question }}
+                <br>
+              </span>
+
+              <span class="u-accordion-link-icon u-icon u-icon-circle u-radius-50 u-text-white u-icon-1">
+                <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 42 42">
+                  <use xlink:href="#svg-977a"></use>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    version="1.1"
+                    xml:space="preserve" 
+                    class="u-svg-content" 
+                    viewBox="0 0 42 42" 
+                    x="0px" y="0px" 
+                    id="svg-977a"
+                    style="enable-background:new 0 0 42 42;">
+                  <polygon 
+                    points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 ">
+                  </polygon>
+                </svg>
+              </span>
+            </a>
+
+            <div class="u-accordion-active u-accordion-pane u-container-style u-shape-rectangle u-accordion-pane-1"
+              id="accordion-f600" aria-labelledby="link-accordion-f600">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  
+                  {% for para in v1_answer %}
+                    {% if para.lower().startswith("bold_") == True %}
+                      <p>
+                        <span style="font-weight: 700;">
+                          {{ para[5:] }}
+                        </span>
+                      </p>
+
+                    {% else %}
+                      <p>
+                        {{ para }}
+                      </p>
+                    
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-97d4">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      
+      {% for footer_key, footer_val in FOOTER_items_dict.items() %}
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1"
+            href="https://teamsds.net/" target="_blank">{{ footer_key }}</a>
+        </p>
+      {% endfor %}
+
+    </div>
+  </footer>
+</body>
+
+</html>

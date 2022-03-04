@@ -37,7 +37,7 @@ class TheCat(commands.Cog):
         os.system("rm -rf ./{delfname}".format(delfname=filename))
 
     @commands.command()
-    async def breed(self, ctx, *, text=None):
+    async def breed(self, ctx):
         url = "https://api.thecatapi.com/v1/breeds"
 
         async with aiohttp.ClientSession() as catSession:

@@ -1,0 +1,67 @@
+{
+    "HEADER": {
+        "logo": "https://cdn.discordapp.com/attachments/877796755234783273/948956991122980904/images.png",
+        "items": {
+            "Home": "index_url",
+            "Help": "help_url",
+            "Visit Main Website": "https://teamsds.net/contact"
+        }
+    },
+    "FOOTER": {
+        "items": {
+            "Github": "https://github.com/hirusha-adi"
+        }
+    },
+    "HOME": {
+        "box": {
+            "title": "Welcome",
+            "sub_title": "I am the CatBot",
+            "body": {
+                "start": "I am an",
+                "bold": "intergration",
+                "mid": "of the ",
+                "hyperlink": {
+                    "url": "http://cats.hirusha.xyz",
+                    "content": "main website"
+                },
+                "end": "for discord. Everything in the website can be done with this discord bot through discord without leaving discord"
+            },
+            "bottom": {
+                "paragraphs": {
+                    "Click here to visit the Main Website": "http://cats.hirusha.xyz"
+                }
+            }
+        },
+        "buttons": {
+            "Show Help": "help_url"
+        }
+    },
+    "HELP": {
+        "tables": [
+            {
+                "Cat As A Service": {
+                    "left_header": "Command",
+                    "right_header": "Description / Help / Usage",
+                    "table_rows": {
+                        ";gif [text=None]": "Send a random Cat GIF. If a text is given, the given text will be added onto the image.",
+                        ";cat [text=None]": "Send a random Cat image. If a text is given, the given text will be added onto the image.",
+                        ";filter [filter_name='sepia'] [text=None]": "Send a a random Cat Image with a filter overlayed on it. filter_name can have one of these six values: blur, mono, sepia, negative, paint, pixel. Defaults to sepia. If a text is given, the given text will be added onto the image.",
+                        ";filtergif [filter_name='sepia'] [text=None]": "Send a a random Cat GIF with a filter overlayed on it. filter_name can have one of these six values: blur, mono, sepia, negative, paint, pixel. Defaults to sepia. If a text is given, the given text will be added onto the image.",
+                        ";breed": "Send a randomly selected cat breed",
+                        ";cats [count=1]": "Send a specified amount of Cat Images one by one. count defaults to 1. The count should always be less than 20 by default."
+                    }
+                }
+            }
+        ],
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "sub_title": "A list of common questions about this Discord Bot",
+            "items": {
+                "What is the bot prefix?": [
+                    "bold_;",
+                    "The prefix of this discord bot is ;"
+                ]
+            }
+        }
+    }
+}
