@@ -36,5 +36,17 @@
             "Show Help": "help_url"
         }
     },
-    "HELP": {}
+    "HELP": {
+        "tables": [
+            {
+                "Crypto123": {
+                    "left_header": "Command",
+                    "right_header": "Description / Help / Usage",
+                    "table_rows": {
+                        "--ca <bruh>": "send an image of a cat"
+                    }
+                }
+            }
+        ]
+    }
 }
