@@ -1,0 +1,12 @@
+{
+    "HOME": {
+        "title": "Cats",
+        "logo": "https://cdn.discordapp.com/attachments/877796755234783273/949289819257839636/116-1166142_transparent-cat-logo-png-black-cat-logo-png.png",
+        "links": {
+            "github_repo": "https://github.com/hirusha-adi/Cats",
+            "github_personal": "https://github.com/hirusha-adi/",
+            "discord_bot_invite_url": "https://ptb.discord.com/api/oauth2/authorize?client_id=947890965383889016&permissions=8&scope=bot"
+        },
+        "creator_pfp": "https://cdn.discordapp.com/attachments/877796755234783273/949334906511700028/KDE2logo.png"
+    }
+}
