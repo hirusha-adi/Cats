@@ -65,7 +65,7 @@ def page_not_found(e):
 
 
 def run():
-    with open(f"{os.getcwd()}database/settings.json", "r", encoding="utf-8") as f:
+    with open(f"{os.getcwd()}/database/settings.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     try:
