@@ -46,6 +46,10 @@
                     "left_header": "Command",
                     "right_header": "Description / Help / Usage",
                     "table_rows": {
+                        ";help": "Send a discord embed with the same data in this table",
+                        ";ping": "Send the response time of the bot",
+                        ";uptime": "Send the uptime of the bot",
+                        ";clean [amount=5]": "Clean the given amount of messages. (Delete the given amount of messages sent by the bot). amount should always be less than 100. This command is available only if you have permission to manage messages",
                         ";gif [text=None]": "Send a random Cat GIF. If a text is given, the given text will be added onto the image.",
                         ";cat [text=None]": "Send a random Cat image. If a text is given, the given text will be added onto the image.",
                         ";filter [filter_name='sepia'] [text=None]": "Send a a random Cat Image with a filter overlayed on it. filter_name can have one of these six values: blur, mono, sepia, negative, paint, pixel. Defaults to sepia. If a text is given, the given text will be added onto the image.",
