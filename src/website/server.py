@@ -69,12 +69,12 @@ def run():
         data = json.load(f)
 
     try:
-        host = str(data["websites"]["main"]["host"])
+        host = str(data["websites"]["bot"]["host"])
     except:
         host = "0.0.0.0"
 
     try:
-        port = str(data["websites"]["main"]["port"])
+        port = str(data["websites"]["bot"]["port"])
     except:
         port = 4499
 

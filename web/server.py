@@ -88,4 +88,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-web.run("0.0.0.0", port=4498)
+if __name__ == "__main__":
+    web.run("0.0.0.0", port=4498)
