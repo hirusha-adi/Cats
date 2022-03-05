@@ -50,7 +50,7 @@ def index():
 
     if (text is None) or (bool(text) is False) or (len(text) == 0):
         data = requests.get(
-            "https://api.thecatapi.com/v1/images/search?limit=2").json()
+            "https://api.thecatapi.com/v1/images/search?limit=50").json()
         sorted_list = sortData(data=data)
         return render_template("index.html",
                                many_images=True,
