@@ -4,12 +4,15 @@
         "items": {
             "Home": "index_url",
             "Help": "help_url",
-            "Visit Main Website": "https://teamsds.net/contact"
+            "Add Discord Bot": "https://ptb.discord.com/api/oauth2/authorize?client_id=947890965383889016&permissions=8&scope=bot",
+            "Visit Main Website": "http://cats.hirusha.xyz"
         }
     },
     "FOOTER": {
         "items": {
-            "Github": "https://github.com/hirusha-adi"
+            "Github": "https://github.com/hirusha-adi",
+            "Website": "http://hirusha.xyz",
+            "Instagram": "https://instagram.com/hirusha.adikari.photography"
         }
     },
     "HOME": {
