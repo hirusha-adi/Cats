@@ -1,3 +1,4 @@
+import json
 import os
 import platform
 import time
@@ -5,7 +6,6 @@ from datetime import datetime, timedelta
 
 import discord
 from discord.ext import commands
-
 from src.utils.database import Embeds as EmbedsDB
 from src.utils.database import Settings as SettingsDB
 
@@ -17,6 +17,9 @@ class General(commands.Cog):
         self.client.remove_command('help')
 
         self.start_time = None
+
+        with open(os.path.join(os.getcwd(), "database", "bot_website.json"), "r", encoding="utf-8") as jsondatafile:
+            self.website_data = json.load(jsondatafile)
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -98,6 +101,26 @@ class General(commands.Cog):
             embed.set_footer(text=EmbedsDB.common["footer"].format(
                 author_name=ctx.author.name))
             await ctx.send(embed=embed)
+
+    @commands.command()
+    async def help(self, ctx):
+        embed = discord.Embed(title=f"{self.client.user.name}'s Functionalities",
+                              color=0xcb42f5,
+                              timestamp=datetime.utcnow())
+        embed.set_author(name=str(self.client.user.name),
+                         icon_url=str(self.client.user.avatar_url))
+
+        for k1, v1 in self.website_data["HELP"]["tables"][0]["Cat As A Service"]["table_rows"].items():
+            embed.add_field(
+                name=f"{k1}",
+                value=f"{v1}",
+                inline=False)
+
+        embed.set_thumbnail(
+            url="https://cdn.discordapp.com/attachments/877796755234783273/949508329863008256/PngItem_3861311.png")
+        embed.set_footer(text=EmbedsDB.common["footer"].format(
+            author_name=ctx.author.name))
+        await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
