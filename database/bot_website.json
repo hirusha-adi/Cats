@@ -1,6 +1,6 @@
 {
     "HEADER": {
-        "logo": "https://cdn.discordapp.com/attachments/877796755234783273/948956991122980904/images.png",
+        "logo": "https://cdn.discordapp.com/attachments/877796755234783273/949289819257839636/116-1166142_transparent-cat-logo-png-black-cat-logo-png.png",
         "items": {
             "Home": "index_url",
             "Help": "help_url",
@@ -49,6 +49,7 @@
                         ";help": "Send a discord embed with the same data in this table",
                         ";ping": "Send the response time of the bot",
                         ";uptime": "Send the uptime of the bot",
+                        ";about": "Show addiional information about the complete `Cats` project",
                         ";clean [amount=5]": "Clean the given amount of messages. (Delete the given amount of messages sent by the bot). amount should always be less than 100. This command is available only if you have permission to manage messages",
                         ";gif [text=None]": "Send a random Cat GIF. If a text is given, the given text will be added onto the image.",
                         ";cat [text=None]": "Send a random Cat image. If a text is given, the given text will be added onto the image.",
