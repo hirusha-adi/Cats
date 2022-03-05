@@ -113,12 +113,12 @@ class General(commands.Cog):
 
         embed.add_field(
             name=f"Cats - http://cats.hirusha.xyz",
-            value=f"``` This website will return you 50 completely random Cat Images and GIFs. You can add any text to an Cat Image using the 'Enter Text' bar and the 'Submit' buttom at the top. The User Interface for this website has been inspired by pinterest ```",
+            value=f"```This website will return you 50 completely random Cat Images and GIFs. You can add any text to an Cat Image using the 'Enter Text' bar and the 'Submit' buttom at the top. The User Interface for this website has been inspired by pinterest ```",
             inline=False)
 
         embed.add_field(
             name=f"Cats - http://bot.cats.hirusha.xyz",
-            value=f"``` This website displays information about this discord bot. All the available help command's + some additional information are displayed ```",
+            value=f"```This website displays information about this discord bot. All the available help command's + some additional information are displayed ```",
             inline=False)
 
         embed.set_thumbnail(
