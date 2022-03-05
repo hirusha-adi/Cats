@@ -29,5 +29,14 @@ async def on_message(message):
 
     await client.process_commands(message)
 
-starWebServer()
-# client.run(token)
+
+def runBotWebsite():
+    starWebServer()
+
+
+def runBot():
+    client.run(token)
+
+
+runBotWebsite()
+runBot()
