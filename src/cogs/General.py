@@ -105,16 +105,25 @@ class General(commands.Cog):
     @commands.command()
     async def help(self, ctx):
         embed = discord.Embed(title=f"{self.client.user.name}'s Functionalities",
+                              description="Visit http://bot.cats.hirusha.xyz for additional information",
                               color=0xcb42f5,
                               timestamp=datetime.utcnow())
         embed.set_author(name=str(self.client.user.name),
                          icon_url=str(self.client.user.avatar_url))
 
+        embed.add_field(
+            name=f";help",
+            value=f"Show this help message",
+            inline=False)
+
         for k1, v1 in self.website_data["HELP"]["tables"][0]["Cat As A Service"]["table_rows"].items():
-            embed.add_field(
-                name=f"{k1}",
-                value=f"{v1}",
-                inline=False)
+            if k1 == ";help":
+                continue
+            else:
+                embed.add_field(
+                    name=f"{k1}",
+                    value=f"{v1}",
+                    inline=False)
 
         embed.set_thumbnail(
             url="https://cdn.discordapp.com/attachments/877796755234783273/949508329863008256/PngItem_3861311.png")
