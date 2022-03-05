@@ -65,7 +65,20 @@ def page_not_found(e):
 
 
 def run():
-    app.run(host='0.0.0.0', port=4499)
+    with open(f"{os.getcwd()}database/settings.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    try:
+        host = str(data["websites"]["main"]["host"])
+    except:
+        host = "0.0.0.0"
+
+    try:
+        port = str(data["websites"]["main"]["port"])
+    except:
+        port = 4499
+
+    app.run(host=host, port=port)
 
 
 def starWebServer():

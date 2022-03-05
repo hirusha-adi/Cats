@@ -1,5 +1,15 @@
 {
     "main": {
         "prefix": ";"
+    },
+    "websites": {
+        "main": {
+            "host": "0.0.0.0",
+            "port": 4498
+        },
+        "bot": {
+            "host": "0.0.0.0",
+            "port": 4499
+        }
     }
 }
