@@ -5,7 +5,9 @@
         "links": {
             "github_repo": "https://github.com/hirusha-adi/Cats",
             "github_personal": "https://github.com/hirusha-adi/",
-            "discord_bot_invite_url": "https://ptb.discord.com/api/oauth2/authorize?client_id=947890965383889016&permissions=8&scope=bot"
+            "discord_bot_invite_url": "https://ptb.discord.com/api/oauth2/authorize?client_id=947890965383889016&permissions=8&scope=bot",
+            "bot_website": "http://bot.cats.hirusha.xyz",
+            "creator_main_site": "http://hirusha.xyz"
         },
         "creator_pfp": "https://cdn.discordapp.com/attachments/877796755234783273/949334906511700028/KDE2logo.png"
     }
