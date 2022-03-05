@@ -15,4 +15,9 @@ try:
 except:
     port = 4498
 
-web.run(host, port=port)
+
+def runWebServer():
+    web.run(host, port=port)
+
+
+runWebServer()
