@@ -24,7 +24,7 @@ def loadJson():
         FOOTER = x["FOOTER"]
 
 
-@app.route('/bot')
+@app.route('/')
 def index():
     global HOME, HEADER, FOOTER
     if HOME is None:
@@ -42,7 +42,7 @@ def index():
                            )
 
 
-@app.route('/bot/help')
+@app.route('/help')
 def help():
     global HELP, HEADER, FOOTER
     if HELP is None:
