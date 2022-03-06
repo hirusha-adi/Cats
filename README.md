@@ -1,5 +1,7 @@
 # Cats
 
+Test a deployment here: http://cats.hirusha.xyz
+
 A website and a discord with cats.
 
 ## What is this?
