@@ -35,10 +35,10 @@ disown -h
 ```
 sudo pacman -Syy nano git python python-pip --noconfirm
 git clone https://github.com/hirusha-adi/Cats.git && cd ./Cats
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 nano token.txt
-python3 website.py &
-python3 discordbot.py &
+python website.py &
+python discordbot.py &
 disown -h
 ```
 
